@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student enrollment form for collecting and displaying student information.">
+
+    <title>Student Enrollment System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <h1>Student Enrollment System</h1>
+            <p>Please complete the form below to enroll a student.</p>
+        </div>
+    </header>
+
+
+    <main id="main-content" class="container">
+
+        <section class="card" aria-labelledby="form-heading">
+            <h2 id="form-heading">Enrollment Form</h2>
+
+            <form id="enrollmentForm" novalidate>
+                <fieldset>
+                    <legend>Student Information</legend>
+
+                    <div class="form-grid">
+                        <!-- Student ID -->
+                        <div class="form-group">
+                            <label for="studentId">Student ID <span aria-hidden="true">*</span></label>
+                            <input
+                                type="text"
+                                id="studentId"
+                                name="studentId"
+                                required
+                                minlength="5"
+                                autocomplete="off"
+                                aria-describedby="studentIdError"
+                            >
+                            <small id="studentIdError" class="error-message" role="alert"></small>
+                        </div>
+
+                        <!-- Prefix -->
+                        <div class="form-group">
+                            <label for="prefix">Prefix</label>
+                            <input
+                                type="text"
+                                id="prefix"
+                                name="prefix"
+                                minlength="2"
+                                autocomplete="honorific-prefix"
+                                aria-describedby="prefixError"
+                            >
+                            <small id="prefixError" class="error-message" role="alert"></small>
+                        </div>
+
+                        <!-- first name -->
+                        <div class="form-group">
+                            <label for="firstName">First Name <span aria-hidden="true">*</span></label>
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                required
+                                minlength="3"
+                                autocomplete="given-name"
+                                aria-describedby="firstNameError"
+                            >
+                            <small id="firstNameError" class="error-message" role="alert"></small>
+                        </div>
+
+                        <!-- middle name -->
+                        <div class="form-group">
+                            <label for="middleName">Middle Name</label>
+                            <input
+                                type="text"
+                                id="middleName"
+                                name="middleName"
+                                minlength="2"
+                                autocomplete="additional-name"
+                                aria-describedby="middleNameError"
+                            >
+                            <small id="middleNameError" class="error-message" role="alert"></small>
+                        </div>
+                        
+                        <!-- last name -->
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                required
+                                minlength="2"
+                                autocomplete="family-name"
+                                aria-describedby="lastNameError"
+                            >
+                            <small id="lastNameError" class="error-message" role="alert"></small>
+                        </div>
+                        
+                        <!-- suffix -->
+                        <div class="form-group">
+                            <label for="suffix">Suffix</label>
+                            <input
+                                type="text"
+                                id="suffix"
+                                name="suffix"
+                                minlength="2"
+                                autocomplete="honorific-suffix"
+                                aria-describedby="suffixError"
+                            >
+                            <small id="suffixError" class="error-message" role="alert"></small>
+                        </div>
+
+                        <!-- email -->
+                        <div class="form-group form-group-wide">
+                            <label for="email">Email <span aria-hidden="true">*</span></label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                autocomplete="email"
+                                placeholder="student@example.com"
+                                aria-describedby="emailError"
+                            >
+                            <small id="emailError" class="error-message" role="alert"></small>
+                        </div>
+
+                        <!-- course -->
+                        <div class="form-group">
+                            <label for="course">Course <span aria-hidden="true">*</span></label>
+                            <select id="course" name="course" required aria-describedby="courseError">
+                                <option value="">Select a course</option>
+                                <option value="BSIT">BSIT</option>
+                                <option value="BSCS">BSCS</option>
+                                <option value="BMMA">BMMA</option>
+                                <option value="BSAIS">BSAIS</option>
+                            </select>
+                            <small id="courseError" class="error-message" role="alert"></small>
+                        </div>
+
+                        <!-- BSIT Major: shown only when BSIT is selected -->
+                        <div class="form-group" id="majorGroup" hidden>
+                            <label for="major">Major <span aria-hidden="true">*</span></label>
+                            <select id="major" name="major" aria-describedby="majorError">
+                                <option value="">Select a major</option>
+                                <option value="Net Sec">Net Sec</option>
+                                <option value="Web Tech">Web Tech</option>
+                                <option value="ERP">ERP</option>
+                            </select>
+                            <small id="majorError" class="error-message" role="alert"></small>
+                        </div>
+
+                        <!-- Year Level -->
+                        <div class="form-group">
+                            <label for="yearLevel">Year Level <span aria-hidden="true">*</span></label>
+                            <select id="yearLevel" name="yearLevel" required aria-describedby="yearLevelError">
+                                <option value="">Select year level</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                            </select>
+                            <small id="yearLevelError" class="error-message" role="alert"></small>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Submit button -->
+                <div class="form-actions">
+                    <button type="submit">Submit</button>
+                </div>
+
+                <p id="successMessage" class="success-message" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <!-- Submitted table -->
+        <section class="card" aria-labelledby="records-heading">
+            <h2 id="records-heading">Submitted Students</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <caption>Enrollment records submitted during this page session</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Student ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">Major</th>
+                            <th scope="col">Year Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>Student Enrollment System</p>
+        </div>
+    </footer>
+
+    <!-- JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
